@@ -1,0 +1,594 @@
+\documentclass[letterpaper,11pt]{article} 
+\usepackage[utf8x]{inputenc} 
+\usepackage[spanish]{babel} 
+\usepackage{babelbib}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref} 
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{geometry}                    
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\chead{} 
+\lhead{}
+\rhead{\textit{Propuesta de investigación}} 
+\lfoot{Daniel F. Suárez Urango} 
+\rfoot{Universidad Industrial de Santander} 
+
+\voffset = -0.25in 
+\textheight = 8.0in 
+\textwidth = 6.5in
+\oddsidemargin = 0.in
+\headheight = 20pt 
+\headwidth = 6.5in
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\begin{document}
+
+
+\title{\textbf{ESTABILIDAD CONVECTIVA Y FRACTURAS EN ESFERAS AUTOGRAVITANTES POLÍTROPAS ANISÓTROPAS EN RELATIVIDAD GENERAL}}
+\author{ \\ \\ \\ \\ \\ 
+{PROPUESTA DE TRABAJO DE INVESTIGACIÓN} \\
+{PARA OPTAR AL TÍTULO DE MAGÍSTER EN FÍSICA} \\ \\ \\ \\ \\ \\
+{PRESENTADO POR:} \\
+{DANIEL FELIPE SUÁREZ URANGO} \\ \\ \\ \\ 
+{DIRECTOR:} \\
+{DR. LUIS ALBERTO NÚÑEZ DE VILLAVICENCIO MARTÍNEZ} \\ 
+{UNIVERSIDAD INDUSTRIAL DE SANTANDER} \\
+{ESCUELA DE FÍSICA} \\
+{BUCARAMANGA} \\ \\
+{CODIRECTOR:} \\
+{DR. HÉCTOR FROILÁN HERNÁNDEZ GUERRA } \\ 
+{UNIVERSIDAD INDUSTRIAL DE SANTANDER} \\
+{ESCUELA DE FÍSICA} \\
+{BUCARAMANGA} \\
+{2019}
+}
+
+\date{}
+
+\maketitle
+
+\newpage 
+
+
+\section{INTRODUCCIÓN}
+
+
+El análisis de la aparición y propagación de inestabilidades en objetos compactos autogravitantes ha sido tema de investigación durante décadas. El contenido material de estos objetos es modelado  macroscópicamente a través de  ecuaciones de estado, las cuales relacionan sus variables físicas e intentan describir los procesos físicos microscópicos más importantes que ocurren en su interior.  Así, las patologías sobre el comportamiento de las ecuaciones de estado bajo perturbaciones de sus variables físicas --como la densidad de energía y la presión-- son críticas para entender la estabilidad de este tipo de configuraciones materiales (véase \cite{friedman2014instabilities} y referencias allí citadas). 
+
+El estudio de la estabilidad en esferas autogravitantes es importante ya que solo aquellos modelos estables ante perturbaciones de sus variables termodinámicas son de interés astrofísico; además, es necesario que los modelos desarrollados cumplan con ciertas condiciones de aceptabilidad física \cite{ivanov2017analytical}.
+
+Los objetos autogravitantes a estudiar en este trabajo serán modelados a través de las ecuaciones de estructura y ecuaciones de estado polítropas, con el fin de describir el contenido material y poder determinar el perfil de densidad característico de cada configuración. Para conocer el perfil de densidad propio del modelo es necesario encontrar soluciones numéricas a las ecuaciones de estructura, dotadas de las ecuaciones de estado, con condiciones de frontera y valores iniciales propios de este tipo de objetos \cite{silbar2005erratum}. Una vez obtenido el perfil de densidad es posible realizar una evaluación de los criterios de estabilidad.
+    
+En Relatividad General las inestabilidades en objetos compactos han sido ampliamente consideradas bajo dos enfoques complementarios: estudiando la evolución de las perturbaciones dinámicas e identificando inestabilidades convectivas que ocurren dentro de la distribución material. El primero de los enfoques, el cual tiene en cuenta la propagación de las perturbaciones a través de toda la configuración material, se inició con las obras de S. Chandrasekhar, R.F. Tooper y J.M. Bardeen \cite{chandrasekhar1964a,chandrasekhar1964b,Tooper1965,tooper1964stability,Bardeen1965} y fue formalizado una década más tarde por J.L. Friedman y B.F. Schutz \cite{FriedmanSchutz1975}. El segundo esquema, el cual ocurre localmente, aplica el principio de Arquímedes que obliga a la presión y a la densidad de energía a disminuir de adentro hacia fuera en cualquier configuración de la materia hidrostática \cite{Bondi1964B,Thorne1966,Kovetz1967}.
+
+Posteriormente L. Herrera y colaboradores \cite{Herrera1992,DiPrisco1994,DiPrisco1997} analizaron la aceleración de marea generada por una perturbación en elementos de fluidos contiguos, y mostraron que es posible identificar una distribución de la fuerza radial total     que cambia de signo dentro de la configuración material. El enfoque de fracturas es propuesto con el fin de describir el comportamiento de la configuración ante inestabilidades, en distribuciones materiales relativistas, justo después que la configuración se aleja de su  equilibrio. Para esto suponen perturbaciones de la densidad y de la anisotropía\footnote{En este contexto, entiéndase anisotropía como la diferencia entre la presión radial y la presión tangencial dentro de la configuración material. Así, $\Delta = P_{r} - P_{\perp}$ es el factor que mide la desviación de la condición de isotropía $P_{r} = P_{\perp}$.} constantes y simultáneas, y las identifican cada vez que la fuerza total cambia de signo en el interior del objeto.  
+
+Recientemente se desarrolló un criterio de estabilidad ante inestabilidades convectivas basado en el principio de flotabilidad: cuando un elemento de fluido es desplazado hacia el centro de la configuración, si su densidad se incrementa más rápido que la densidad del fluido que le rodea ($\rho_s$), entonces el elemento de fluido ($\rho_e$) caerá hacia el centro de la esfera y el objeto será inestable bajo este tipo de perturbación. Si, por el contrario, la densidad del elemento es menor que la del medio entonces este retornará a su posición inicial y la esfera será estable frente a perturbaciones convectivas.
+
+El estudio de esferas autogravitantes relativistas con ecuaciones de estado polítropas comenzó en 1964 con la obra de
+Robert F. Tooper \cite{Tooper1964b}, al discutir las soluciones de las ecuaciones de campo de la Relatividad General para una esfera de fluido compresible en equilibrio gravitacional. Estas esferas obedecen una ecuación de estado polítropa relativista, la cual es una generalización de la ecuación de estado polítropa utillizada para describir objetos bajo la teoría newtoniana \cite{chandrasekhar1957introduction}. En una teoría relativista, la masa y la energía deben ser equivalentes. La densidad que aparece en las ecuaciones relativistas de gravitación representa la densidad de energía interna proveniente de todas las fuentes posibles, en vez de simplemente la densidad de materia. A partir de esta generalización, las ecuaciones de estado polítropas se han utilizado para describir modelos simplificados de objetos astrofísicos relativistas de interés, y han hecho posible el estudio de sus características y de la estabilidad bajo distintos enfoques
+\cite{bludman1973stability, nilsson2000general, maeda2002no}.
+
+Herrera y Barreto \cite{herrera2013general} desarrollan en detalle el formalismo para modelar estrellas relativistas anisótropas con ecuaciones de estado polítropas generales considerando dos posibilidades para estas: la primera tiene en cuenta la relación entre la presión radial y la densidad de masa bariónica, o densidad de masa volumétrica, en la esfera de fluido; mientras que la segunda relaciona la presión radial con la densidad de energía total. Bajo estos dos esquemas, en \cite{HerreraFuenmayorLeon2016} se discute el efecto que tienen las fluctuaciones de la presión anisótropa local y de la densidad de energía en la aparición de fuerzas que cambien de signo dentro de la distribución material (fracturas).
+
+En este trabajo se propone analizar la estabilidad de esferas autogravitantes anisótropas polítropas ante inestabilidades convectivas y perturbaciones locales de la densidad bajo los enfoques de estabilidad convectiva y fracturas, con el fin de estudiar la influencia de la flotabilidad sobre el concepto de fracturas y su interacción \cite{hernandez2018convection}. 
+
+En este documento se expone el problema de establecer una relación entre la estabilidad convectiva y el concepto de fracturas en esferas autogravitantes. Además, se hace un breve resumen del estado del arte referente al problema abordado y se explica la metodología a seguir para lograr los objetivos propuestos. Por último se exponen los tiempos planteados para el cumplimiento de la investigación y los recursos humanos utilizados.
+
+
+
+
+
+\section{PLANTEAMIENTO Y JUSTIFICACIÓN DEL PROBLEMA}
+
+El objetivo de este trabajo es comparar los criterios de estabilidad de fracturas y estabilidad convectiva, en esferas autogravitantes anisótropas modeladas por ecuaciones de estado polítropas en Relatividad General. Además se quiere explorar si existe alguna relación entre el concepto de flotabilidad y el de fracturas para este tipo de ecuación de estado.
+
+El enfoque de fracturas \cite{Herrera1992,DiPrisco1994,DiPrisco1997} consiste en determinar la aparición de fuerzas radiales totales que cambien de signo en diferentes regiones de la esfera autogravitante, una vez que la configuración en equilibrio ha sido perturbada. La fuerza radial total dentro de la esfera es la suma de todas las fuerzas presentes en la configuración debido a la perturbación, y por lo tanto dependerá de cómo sea perturbado el objeto compacto.
+
+En \cite{HerreraFuenmayorLeon2016} estudian la estabilidad de objetos compactos anisótropos modelados por ecuaciones de estado polítropas, bajo el concepto de fracturas, considerando perturbaciones constantes y simultáneas en la densidad de energía y la anisotropía. Los resultados obtenidos en este estudio muestran que tales configuraciones presentan fractura o solapamiento al identificar un cambio de signo en la distribución de la fuerza radial total dentro de la configuración. En este esquema, las fuerzas que aparecen tras la perturbación se deben a fluctuaciones generadas en las variables físicas masa ($m$), presión radial ($P_{r}$), presión tangencial ($P_{\perp}$) y densidad de energía ($\rho$), presentes en la ecuación de equilibrio hidrostático.
+
+Por otra parte, en el escenario perturbativo donde se consideran fluctuaciones locales en la densidad \cite{GonzalezNavarroNunez2015,sharif2018cracking}, las fuerzas que aparecen después de perturbar al objeto no solo se deben a fluctuaciones generadas en las variables físicas antes mencionadas, sino que también se deben a las fluctuaciones producidas en el gradiente de estas; por lo tanto aparece la contribución de una fuerza originada por la perturbación del gradiente de la presión radial (el cual aparece en la ecuación de equilibrio perturbada) dentro de la distribución de materia.
+
+Los resultados obtenidos en \cite{sharif2018cracking}, para objetos compactos anisótropos modelados por una ecuación de estado polítropa, muestran que estos pueden presentar fractura o solapamiento al considerar este tipo de perturbaciones. De igual importancia, las conclusiones obtenidas en \cite{GonzalezNavarroNunez2015} para polítropas isótropas también exhiben la existencia de fractura o solapamiento bajo estas condiciones.
+
+
+Sin embargo, lo anterior no concuerda con las conclusiones expuestas en \cite{hernandez2018convection} donde estudian objetos compactos bajo el concepto de fracturas. En este último estudio, en el cual utilizan perfiles de densidad analíticos para modelar objetos autogravitantes, concluyen que si se toma en cuenta la reacción del gradiente de presión ante perturbaciones de la densidad, las inestabilidades debido a fracturas pueden desaparecer. Dicho de otra manera, la fuerza generada en el interior de la configuración material debido al gradiente de presión contribuye a la estabilidad del objeto. Por lo tanto, el gradiente de presión estabiliza la configuración contra fractura cuando  es afectado por una perturbación en la densidad.
+
+Las discrepancias existentes entre \cite{GonzalezNavarroNunez2015,sharif2018cracking} y \cite{hernandez2018convection} motivan a revisar e investigar las causas del disentimiento entre los resultados expuestos. Para esto, se propone analizar el efecto de perturbaciones locales no constantes de la densidad en configuraciones materiales anisótropas bajo el concepto de fracturas. Igualmente se analizará la estabilidad de la configuración ante inestabilidades convectivas utilizando el criterio desarrollado en \cite{hernandez2018convection}, y se explorará la posibilidad de establecer una relación entre ellos con el fin de responder a la pregunta: ¿cómo afecta la flotabilidad y la reacción del gradiente de presión a la estabilidad de objetos compactos bajo el concepto de fracturas?
+
+Si bien se pueden considerar muchas ecuaciones de estado que modelen el contenido material de los objetos autogravitantes a estudiar, este trabajo se concentrará en el uso de ecuaciones de estado polítropas \cite{herrera2013general} para este fin. Esto debido a que la simplicidad y versatilidad de este tipo de relación -entre presión y densidad- permite modelar distintos escenarios de interés al variar el índice polítropo $n$. Además, estas ecuaciones presentan soluciones analíticas que pueden ser de mucha ayuda al momento de interpretar los resultados numéricos obtenidos.
+
+Aunque la relación entre la presión radial y la densidad de energía esté dada por una ley de potencias, las ecuaciones de estado que se manejarán serán de tipo numéricas ya que se necesita integrar el sistema de ecuaciones que describe la configuración con el fin de obtener el perfil de densidad característico de cada esquema. Lo anterior permite analizar la estabilidad de este tipo de objetos para un rango amplio de valores del índice polítropo $n$.
+
+Con este trabajo de investigación propuesto se espera generar nuevo conocimiento al estudiar la estabilidad de polítropas ante inestabilidades convectivas. Además, abrir el paso para el estudio de esferas autogravitantes relativistas utilizando ecuaciones de estado numéricas. Por otra parte, se pretende esclarecer la diferencia entre los resultados expuestos en \cite{GonzalezNavarroNunez2015,sharif2018cracking} y \cite{hernandez2018convection} al explorar la influencia del gradiente de presión y de la flotabilidad sobre la estabilidad bajo el concepto de fracturas.
+
+
+
+
+
+
+
+
+% El enfoque de fracturas \cite{GonzalezNavarroNunez2015,sharif2018cracking,} examina las influencias de las fluctuaciones locales de la densidad en la estabilidad de configuraciones de materia. Estas perturbaciones de la densidad generan fluctuaciones en la masa, la presión radial, la presión tangencial y el gradiente de presión. Bajo este concepto, las fracturas serán identificadas cuando se presente un cambio de signo en la ecuación de equilibrio perturbada. Observando la ecuación (\ref{fracking}) para el gradiente de presión perturbado, vemos que aparece la segunda derivada de la densidad (flotabilidad): lo cual nos permite inferir que existe una relación entre los dos criterios de estabilidad a desarrollar en el trabajo de investigación.
+
+% Las ecuaciones de estado polítropas han sido particularmente utilizadas para describir una gran variedad de situaciones en el contexto de gravedad Newtoniana debido a su simplicidad y a la capacidad de modelar distintos tipos de objetos autogravitantes observados solamente con modificar un parámetro: el índice polítropo $n$; además, este tipo de modelos admiten soluciones analíticas, de ahí su importancia.
+
+
+
+\section{OBJETIVOS}
+
+	\subsection{Objetivo general}
+    	
+Comparar y explorar la posibilidad de establecer una relación entre la estabilidad convectiva y el concepto de fracturas en esferas autogravitantes polítropas anisótropas en el marco de la Relatividad General.
+        
+    
+    \subsection{Objetivos específicos}
+            
+\begin{itemize}
+
+
+\item  Caracterizar modelos polítropos y estudiar su estabilidad bajo inestabilidades convectivas y bajo el concepto de fracturas.
+
+\item Identificar cuáles valores del índice polítropo $n$, para las ecuaciones de estado polítropas, cumplen con condiciones de aceptabilidad física.
+
+\item Comparar los criterios de estabilidad desarrollados. 
+
+\item Establecer si existe relación entre estabilidad convectiva y fracturas.
+
+
+
+\end{itemize}
+        
+    
+\section{ESTADO DEL ARTE}
+Con el fin de estudiar objetos astrofísicos de interés se hizo una revisión en la literatura de las condiciones mínimas que un modelo plausible debe cumplir. Se encontró que son 10 las condiciones, detalladas en esta sección, que deben satisfacerse para modelar estrellas compactas anisótropas.
+
+Además se enmarcan los dos esquemas de estabilidad objetos de esta investigación: fracturas y estabilidad convectiva; especificando los criterios de estabilidad a tener en cuenta para determinar el estado de los objetos autogravitantes anisótropos bajo perturbaciones locales en la densidad.
+
+Por último, se exponen los trabajos más recientes sobre estabilidad en objetos compactos modelados por ecuaciones de estado polítropas desde el esquema de fracturas, comentándose los resultados obtenidos en ellos. Asimismo, se da a conocer la generalización de la ecuación de estado polítropa en el marco de la Relatividad General.
+
+El concepto de fracturas fue introducido por Herrera y colaboradores \cite{Herrera1992,DiPrisco1994,DiPrisco1997,HerreraFuenmayorLeon2016} para describir el comportamiento de configuraciones materiales autogravitantes anisótropas, justo después de partir del equilibrio, cuando la fuerza radial cambia su signo en algún valor de la coordenada radial dentro de la configuración. Para esto se consideró una métrica con simetría esférica,
+\begin{equation}
+\mathrm{d}s^2 = {-} \mathrm{e}^{2\nu(r)}\,\mathrm{d}t^2 {+} \mathrm{e}^{ 2\lambda(r)} \,\mathrm{d}r^2 {+} r^2 \left(\mathrm{d}\theta ^2 {+}
+\sin^2\theta\,\mathrm{d}\phi^2\right) \; ,
+\label{metricSpherical}
+\end{equation}
+y un fluido anisotrópo, 
+\begin{equation}
+{T}_{\mu \nu}= (\rho + P_{\perp}){{u}}_\mu{ {u}}_\nu {+} P_{\perp}{g}_{\mu \nu}  +
+(P_{r}-P_{\perp}){{v}}_\mu {{v}}_\nu   \,,\label{tmunu}
+\end{equation}
+
+donde $ {{u}}_\mu =  ({ \mathrm{e}^{\nu} }, 0, 0, 0)  \,, {{v}}_\mu =  (0,{ \mathrm{e}^{\lambda} }, 0, 0) $ , $ \rho $ describe la densidad de energía, $P_{r}$ la presión radial, y $ P_{\perp} $ la presión tangencial del fluido.
+
+
+
+\subsection{Condiciones de aceptabilidad física}
+
+La Relatividad General propone una forma de describir la manera en la que la materia afecta la curvatura del espacio-tiempo. Esta teoría de la gravedad, por sí misma, no nos proporciona información sobre las características que debe tener una configuración material con el fin de modelar objetos reales. Por lo tanto, se puede considerar imponer suposiciones sobre el tensor de energía-momento para describir una distribución de materia real.
+
+Las restricciones sobre el tensor de energía-momento, que se deben mantener para describir una configuración material razonable, son conocidas como condiciones de energía. Entonces, para una distribución material descrita por el tensor de energía-momento $T_{ab}$ y un observador con cuadrivelocidad $v^{a}$:
+
+\begin{itemize}
+    \item Condición de energía débil (WEC): esta condición supone que la densidad de energía de materia, medida por un observador con cuadrivelocidad $v^{a}$, nunca es negativa. Lo anterior se resume en  $T^{a}_{b} v_{a} v^{b} \geq 0$, para cualquier vector tipo tiempo $v^{a}$.
+    
+    \item Condición de energía fuerte (SEC): la gravedad siempre es atractiva en Relatividad General. Esto puede escribirse como la condición $T^{a}_{b} v_{a} v^{b} \geq - \frac{1}{2} T$. Es físicamente razonable que los esfuerzos en la materia ($T$) sean menor que la densidad de energía, con el fin de mantener la materia como una distribución continua.
+    
+    \item Condición de energía dominante (DEC): esta condición impone que la velocidad del flujo de energía siempre es menor que la velocidad de la luz (causalidad). Esto es $T^{a}_{b} v_{a} v^{b} \geq 0$, $F^{a} F_{b} \leq 0 $, siendo $F^{a} = - T^{a}_{b} v^{b}$ el cuadrivector de flujo.
+    \item Condición de energía nula (NEC): El esfuerzo y la energía que experimenta un rayo de luz no debe ser negativo. Entonces se tiene que $T^{a}_{b} k_{a} k^{b} \geq 0$ para cualquier vector nulo $k^{a}$.
+\end{itemize}
+
+
+Es claro que no basta con elegir ecuaciones de estado que cierren el sistema de ecuaciones de estructura con el fin de encontrar una solución analítica o numérica al problema; obviamente estas deben de estar dotadas de sentido físico si se quiere modelar objetos que puedan ser observados en la naturaleza.
+
+En un estudio \cite{delgaty1998physical} se analizaron 127 soluciones exactas a las ecuaciones de Einstein encontradas en la literatura bajo distintas condiciones de aceptabilidad física (mostradas a continuación). De todas estas posibles ecuaciones de estado, que podrían describir configuraciones materiales relativistas, solo 16 pasaron el filtro. Y de estas 16, solo 9 tienen una velocidad del sonido que decrece monótonamente con el radio. 
+
+Con el fin de describir objetos autogravitantes con simetría esférica, para que las soluciones encontradas sean de interés físico estas deben cumplir con ciertas condiciones de aceptabilidad. Estas condiciones han sido formadas a través de los años y son compiladas en \cite{ivanov2017analytical} así:
+
+C1: Potenciales métricos positivos, finitos y libre de singularidades en el interior de la esfera. En el centro deben satisfacer $\mathrm{e}^{-\lambda(0)}=1$ y $\mathrm{e}^{\nu(0)}=constante$.
+
+C2: Condiciones de acoplamiento. En la superficie de la esfera $r=R$ la solución interior debe coincidir de forma continua con la solución exterior de Schwarzschild
+\begin{equation*}
+    \mathrm{d}s^{2} = \left(1 - \frac{2M}{r} \right)\mathrm{d}t^{2} - \left(1 - \frac{2M}{r} \right)^{-1}\mathrm{d}r^{2} - r^{2} \left(\mathrm{d}\theta^{2} + \sin^{2}{\theta} \mathrm{d}\phi^{2}  \right),
+\end{equation*}
+lo cual determina la métrica en la superficie como
+\begin{equation*}
+    \mathrm{e}^{\nu(R)} = \mathrm{e}^{-\lambda(R)} = 1 - \frac{2M}{R}.
+\end{equation*}
+
+C3: Disminución del corrimiento al rojo interior ($Z$) al aumentar $r$, ya que este depende solamente de $\nu$:
+\begin{equation*}
+    Z(r) = \mathrm{e}^{-\nu/2}-1.
+\end{equation*}
+En la superficie, el corrimiento al rojo y la compacidad ($\mu$) están relacionados por
+\begin{equation*}
+    Z(R) = \left(1 - \mu(R) \right)^{-1/2} - 1 \, , \quad  \text{siendo} \quad \mu(r) = 2m(r)/r \, .
+\end{equation*}
+El corrimiento al rojo gravitacional se debe a la pérdida de energía que sufre un fotón al pasar de un campo gravitacional mayor a uno menor, lo cual incrementa su longitud de onda. Esta pérdida de energía es debido al trabajo hecho en contra del potencial gravitacional. Por lo tanto, una medida del corrimiento al rojo gravitacional nos da información sobre la curvatura del espacio-tiempo.
+% y deben ser menor que los límites universales (estos límites dependen de cuál condición de energía se mantiene). En el caso isótropo el límite del redshift y la compacidad en la superficie son 2 y 8/9, respectivamente. En el caso anisótropo, cuando la condición de energía dominante (DEC) se mantiene, son 5,211 y 0,974. Y cuando la condición de energía fuerte (SEC) se mantiene son 3,842 y 0,957.
+
+
+C4: La densidad y las presiones no deben ser negativas dentro de la esfera. Para $\rho$ esto coincide con la condición de energía nula (NEC). En el centro deben ser finitas $\rho(0) = \rho_{c}$, $P_{r}(0) = P_{r_{c}}$ y $P_{\perp}(0) = P_{\perp_{c}}$. Además, $P_{r}(0) = P_{\perp}(0)$.
+
+C5: El máximo de la densidad y las presiones se encuentra en el centro, tal que $\rho^{\prime}(0) = P_{r}^{\prime}(0) = P_{\perp}^{\prime}(0) = 0$, y decrecen monótonamente hacia fuera de la esfera, por lo tanto $\rho^{\prime} \leq 0$, $P_{r}^{\prime} \leq 0$, $P_{\perp}^{\prime} \leq 0$. La presión tangencial debe ser siempre mayor que la radial, excepto en el centro, $P_{\perp} \geq P_{r} $.
+
+C6: Condiciones de energía. La solución debe satisfacer la condición de energía dominante (DEC) $\rho \geq P_{r}$, y $\rho \geq P_{\perp}$. Es deseable que incluso la condición de energía fuerte $\rho \geq P_{r} + 2 P_{\perp}$ se satisfaga.
+
+C7: Condiciones de causalidad. La velocidad tangencial y radial del sonido no debe sobrepasar la velocidad de la luz. La velocidad del sonido es definida como $v^{2} = \mathrm{d}P_{r}/\mathrm{d}\rho$ y $v^{2}_{\perp} = \mathrm{d}P_{\perp}/\mathrm{d}\rho$. Por lo tanto la condición puede escribirse como
+\begin{equation*}
+    0 < \frac{\mathrm{d}P_{r}}{\mathrm{d}\rho} \leq 1 \, , \quad 0 < \frac{\mathrm{d}P_{\perp}}{\mathrm{d}\rho} \leq 1.
+\end{equation*}
+
+C8: Criterio de estabilidad para el índice adiabático  $\gamma = \frac{\rho + P}{P} v^{2} \geq \frac{4}{3}$, consecuencia del criterio de estabilidad dinámica.
+
+C9: Estabilidad contra fracturas. Encontrándose en \cite{AbreuHernandezNunez2007b} que la región de estabilidad está dada por $-1 \leq v^{2}_{\perp} - v^{2} \leq 0$, es decir, las regiones potencialmente inestables son aquellas donde la velocidad del sonido tangencial al cuadrado es mayor que la velocidad del sonido radial al cuadrado. 
+
+C10: Condición de estabilidad Harrison-Zeldovich-Novikov, la cual implica que  $\mathrm{d}M(\rho_{c}) / \mathrm{d}\rho_{c} < 0 $.
+
+
+
+
+En el caso de esferas autogravitantes modeladas por ecuaciones de estado polítropas \cite{tooper1964stability} se puede observar, a simple vista, que las soluciones numéricas encontradas sí cumplen con estas condiciones de aceptabilidad física. Hay que tener en cuenta que, debido a la condición C8 (criterio de estabilidad para el índice adiabático $\gamma$), el índice polítropo $n$ debe ser menor o igual que 3 si se quiere modelar esferas autogravitantes estables.
+
+En el trabajo a realizar se requerirá que los objetos autogravitantes modelados cumplan con estas condiciones mínimas de aceptabilidad, especialmente la condición C9 concerniente al enfoque de fracturas. Además, como una undécima condición, puede añadirse la condición de estabilidad convectiva: detallada también más adelante en esta misma sección. 
+
+
+
+
+\subsection{Fracturas}
+
+
+La ecuación de equilibrio hidrostático que modela una configuración material anisótropa simétricamente esférica está dada por
+
+\begin{equation}
+\label{EqHid}
+ \mathcal{R} = \frac{\mathrm{d} P_{r}}{\mathrm{d} r} +(\rho +P_{r})\frac{m + 4 \pi r^{3}P_{r}}{r(r-{2}m)}-\frac{2(P_\perp -P_{r})}{r} = 0 \, ,
+\end{equation}
+donde el término $ P_\perp -P_{r} $ surge de la anisotropía en la configuración. La ecaución (\ref{EqHid}) también representa la distribución de fuerzas dentro del sistema.
+
+    	
+El enfoque de fracturas desarrollado por González, Navarro y Núñez \cite{GonzalezNavarroNunez2015} propone un nuevo esquema para analizar la estabilidad de esferas autogravitantes al examinar las influencias de las fluctuaciones locales de la densidad en la estabilidad de configuraciones de materia. Este tipo de perturbación es representada por cualquier función de soporte compacto, $ \delta \rho = \delta \rho (r)$, definida en un intervalo cerrado $ \Delta \tilde{r} \ll R $, siendo $ R $ el radio total de la configuración; y esta afecta a todas las variables físicas incluyendo el gradiente de presión y la función masa.
+
+Una perturbación en la densidad, $ \rho \, \mathrm{\rightarrow} \, \rho \, {+} \,  \mathrm{\delta} \rho $ , induce una perturbación de su gradiente,
+\begin{equation}
+\rho^{\prime} (\rho + \mathrm{\delta} \rho) \approx \rho^{\prime} (\rho) + \delta \rho^{\prime} = \rho^{\prime} (\rho) + \frac{\mathrm{d} \rho^{\prime}}{\mathrm{d} \rho} \mathrm{\delta} \rho ,
+\end{equation}
+donde las variables primadas expresan derivadas respecto a la coordenada radial.
+
+Estas perturbaciones locales generan fluctuaciones en la masa, la presión radial, la presión tangencial y el gradiente de presión, las cuales pueden ser representadas por términos lineales en la fluctuación de la densidad como
+
+\begin{equation}
+P_{r} (\rho + \delta \rho) \approx P_{r} (\rho) + \delta P_{r} \approx P_{r} (\rho) + \frac{\mathrm{d} P_{r}}{\mathrm{d} \rho} \delta \rho
+\end{equation}
+\begin{equation}
+P_{\perp} (\rho + \delta \rho) \approx P_{\perp} (\rho) + \delta P_{\perp} \approx P_{\perp} (\rho) + \frac{\mathrm{d} P_{\perp}}{\mathrm{d} \rho} \delta \rho
+\end{equation}
+\begin{equation}
+P_{r}^{\prime} (\rho + \delta \rho) \approx P_{r}^{\prime} (\rho) + \delta P_{r}^{\prime} \approx P_{r}^{\prime} (\rho) + \frac{\mathrm{d} P_{r}^{\prime}}{\mathrm{d} \rho} \delta \rho
+\end{equation}
+\begin{equation}
+m (\rho + \delta \rho) \approx m (\rho) + \delta m \approx m (\rho) + \frac{\mathrm{d} m}{\mathrm{d} \rho} \delta \rho
+\end{equation}
+
+donde la última parte en cada ecuación representa la variable perturbada calculada por medio de una expansión en series de Taylor. Se tiene entonces que
+\begin{equation}
+\delta P_{r} = \frac{\mathrm{d} P_{r}}{\mathrm{d} \rho} \delta \rho = v^2 \delta \rho
+\end{equation}
+
+\begin{equation}
+\delta P_{\perp} = \frac{\mathrm{d} P_{\perp}}{\mathrm{d} \rho} \delta \rho = v^{2}_{\perp} \delta \rho
+\end{equation}
+
+\begin{equation}
+\label{fracking}
+\begin{aligned}
+\delta P_{r}^{\prime} = \frac{\mathrm{d} P_{r}^{\prime}}{\mathrm{d} \rho} \delta \rho = \frac{\mathrm{d}}{\mathrm{d} \rho} \left[\frac{\mathrm{d} P_{r}}{\mathrm{d} r} \right] \delta \rho = \frac{\mathrm{d}}{\mathrm{d} \rho} \left[\frac{\mathrm{d} P_{r}}{\mathrm{d} \rho} \frac{\mathrm{d} \rho}{\mathrm{d} r} \right] \delta \rho \; , \\ = \frac{\mathrm{d}}{\mathrm{d}\rho} \left[v^{2} \rho^{\prime} \right] \delta \rho = \frac{1}{\rho^{\prime}} \frac{\mathrm{d}}{\mathrm{d} r} \left[v^{2} \rho^{\prime} \right] \delta \rho = \left[ {\left(v^{2} \right)}^{\prime} + v^{2} \frac{\rho^{\prime \prime}}{\rho^{\prime}} \right] \delta \rho
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\delta m = \frac{\mathrm{d} m}{\mathrm{d} \rho} \delta \rho = \frac{\mathrm{d} m}{\mathrm{d} r} \left(\frac{\mathrm{d} r}{\mathrm{d} \rho} \right) \delta \rho = \frac{m^{\prime}}{\rho^{\prime}} \delta \rho = \frac{4 \pi r^{2} \rho}{\rho^{\prime}} \delta \rho
+\end{equation}
+
+Para establecer el efecto de las perturbaciones en la fuerza total, expandimos (\ref{EqHid}) como
+\begin{equation}
+\mathcal{R} \approx \mathcal{R}_{0} \left( \rho, P_{r}, P_{\perp}, P_{r}^{\prime}, m \right) + \delta \mathcal{R} ,
+\end{equation}
+y lo comparamos con la correspondiente expansión de Taylor, quedando
+\begin{equation}
+\label{EqHidPer}
+\delta \mathcal{R} = \delta \rho \left\lbrace \frac{\partial \mathcal{R}}{\partial \rho} + \frac{\partial \mathcal{R}}{\partial P_{r}} \frac{\mathrm{d} P_{r}}{\mathrm{d} \rho} + \frac{\partial \mathcal{R}}{\partial P_{\perp}} \frac{\mathrm{d} P_{\perp}}{\mathrm{d} \rho} + \frac{\partial \mathcal{R}}{\partial m} \frac{\mathrm{d} m}{\mathrm{d} \rho} + \frac{\partial \mathcal{R}}{\partial P_{r}^{\prime}} \frac{\mathrm{d} P_{r}^{\prime}}{\mathrm{d} \rho} \right\rbrace , 
+\end{equation}
+donde 
+\begin{equation}
+\mathcal{R}_{0}(\rho, P_{r}, P_{\perp}, P_{r}^{\prime}, m) = 0
+\end{equation}
+porque inicialmente la configuración está en equilibrio.
+
+Las fracturas serán identificadas cuando se presente un cambio de signo en la ecuación de equilibrio perturbada (\ref{EqHidPer}).
+
+
+
+\subsection{Estabilidad convectiva}
+
+Por otra parte, la estabilidad convectiva implica el principio de flotabilidad, el cual conduce a que la presión y la densidad de energía deben disminuir hacia fuera en cualquier configuración de materia hidrostática \cite{Bondi1964B,Thorne1966,Kovetz1967}.
+
+Cuando un elemento de fluido es desplazado hacia el centro de la configuración, si su densidad se incrementa más rápido que la densidad del fluido que le rodea ($\rho_s$), entonces el elemento de fluido ($\rho_e$) caerá hacia el centro de la esfera y el objeto será inestable bajo este tipo de perturbación. Si, por el contrario, la densidad del elemento es menor que la del medio entonces este retornará a su posición inicial y la esfera será estable frente a perturbaciones convectivas. Se tiene entonces:
+
+\begin{itemize}
+    \item Si $\rho_{e} > \rho_{s}$, la gravedad tenderá a atraer al elemento de fluido hacia el centro de la esfera y el sistema será inestable.
+    \item Si $\rho_{e} = \rho_{s}$, el sistema será metaestable.
+    \item Si $\rho_{e} < \rho_{s}$, el elemento de fluido retornará a su posición inicial y el sistema será estable.
+\end{itemize}
+
+Con base en lo anterior y siguiendo a Bondi \cite{Bondi1964B}, Hernández, Núñez y Vásquez-Ramírez \cite{hernandez2018convection} proponen un criterio de estabilidad teniendo en cuenta la flotabilidad del sistema, es decir, la segunda derivada de la densidad respecto a la coordenada radial. Para esto consideran un cubo infinitesimal con densidad $\rho(r_p)$  que es desplazado hacia el centro de la esfera y cuya posición inicial es denotada como $r_p$. Se tiene entonces:
+
+\begin{equation*}
+    \rho (r_{p}) \rightarrow \rho (r_{p}) + \delta \rho(r) \, , \quad \text{siendo} \hspace{3mm} \delta \rho (r) = \rho^{\prime} (r)(- \delta r) \quad \text{y} \quad r = r_{p} - \delta r \, ,
+\end{equation*}
+donde r es la posición actual del cubo y $- \delta r$ el desplazamiento hacia el centro.
+
+Ya que $\rho^{\prime}(r)$ es menor que cero, entonces $\delta \rho (r)$ es una cantidad positiva, y la densidad del cubo luego de ser desplazado siempre será mayor que al inicio. Por otra parte, al expandir la densidad del medio que rodea al cubo desplazado se obtiene:
+
+\begin{equation}
+    \rho (r_{p} - \delta r) \approx \rho (r_{p}) + \rho^{\prime} (r_{p})(- \delta r) \, .
+\end{equation}
+
+El sistema será estable contra convección si la densidad del medio es mayor o igual que la densidad del cubo, entonces:
+
+\begin{equation*}
+    \rho(r_{p}) + \rho^{\prime} (r_{p})(- \delta r) \, \geq \, \rho(r_{p}) + \rho^{\prime}(r)(- \delta r) \, \, , \quad \text{y por lo tanto} \hspace{3mm} \rho^{\prime}(r_{p}) \leq \rho^{\prime}(r).
+\end{equation*}
+
+Finalmente, expandiendo $\rho^{\prime}(r)$ alrededor de $r_{p}$ se tiene:
+
+\begin{equation*}
+    \rho^{\prime}(r_{p}) + \rho^{\prime \prime} (r_{p}) \delta r \, \leq \, \rho^{\prime}(r_{p}) \quad \Rightarrow \quad \rho^{\prime \prime} (r) \leq 0 \, ,
+\end{equation*}
+es el criterio de estabilidad adiabática contra convección. Por lo tanto, los perfiles de densidad con la segunda derivada (flotabilidad) menor o igual que cero serán estables contra movimientos convectivos adiabáticos.
+
+\subsection{Ecuación de estado polítropa}
+
+El estudio de ecuaciones de estado polítropas vale la pena ya que su simplicidad nos permite tener una visión aproximada de la estructura estelar sin las complicaciones inherentes de modelos numéricos en toda regla. Además, este tipo de ecuación resulta ser muy versátil puesto que permite modelar distintos escenarios astrofísicos solamente con variar el índice polítropo ($n$) en la ecuación de estado polítropa \cite{Tooper1964b}. Así, por ejemplo, para $n=3$ tenemos la ecuación de estado que modela a un gas completamente degenerado en el límite relativista (enana blanca) \cite{araujo2011newtonian}, mientras que para $n = 0$ corresponde a un fluido incompresible \cite{nilsson2000general}. 
+
+En \cite{herrera2013general} Herrera y Barreto establecen en detalle el formalismo general para modelar polítropas con anisotropía en el marco relativista. La teoría de las polítropas se basa en la ecuación de estado polítropa, que para el caso newtoniano es
+
+\begin{equation}
+\label{Poli1}
+    P = K \rho_{0}^{\gamma} = K \rho_{0}^{1+1/n} \, ,
+\end{equation}
+donde $P$ es la presión radial y $\rho_{0}$ es la densidad de masa bariónica, es decir, la parte de la densidad de masa que satisface una ecuación de continuidad y por lo tanto es conservada. Además, $K, \gamma$ y $n$ siendo constantes llamadas constante polítropa, exponente polítropo e índice polítropo, respectivamente.
+
+Bajo el contexto de la Relatividad General, surgen dos posibilidades a considerar para la ecuación de estado polítropa. En la primera situación la ecuación de estado relaciona la presión con la densidad de masa en reposo, mientras que en la segunda la relación se da entre la presión y la densidad de energía total. veamos:
+
+\begin{itemize}
+    \item Caso 1: Se mantiene la ecuación de estado polítropa (\ref{Poli1}).
+    
+    La primera y segunda ley de la termodinámica pueden ser escritas como
+    
+    \begin{equation*}
+        \mathrm{d}\left(\frac{\rho + P}{\mathcal{N}} \right) - \frac{\mathrm{d}P}{\mathcal{N}} = T \mathrm{d}\left(\frac{\sigma}{\mathcal{N}} \right) \, \, ,
+    \end{equation*}
+    donde $T$ es la temperatura, $\sigma$ la entropía por unidad de volumen propio y $\mathcal{N}$ la densidad de partículas tal que $\rho_{0} = \mathcal{N} m_{0}$.
+    Entonces, para un proceso adiabático se tiene que
+    
+    \begin{equation}
+    \label{primeraley}
+        \mathrm{d} \left( \frac{\rho}{\mathcal{N}} \right) + P \mathrm{d} \left(\frac{1}{\mathcal{N}}  \right) = 0 \, \, ,
+    \end{equation}
+    y utilzando (\ref{Poli1}) queda
+    
+    \begin{equation*}
+        K \rho_{0}^{\gamma - 2}  = \frac{\mathrm{d}\left(\rho / \rho_{0} \right)}{\mathrm{d}\rho_{0}}.
+    \end{equation*}
+    
+    Considerando $\gamma \neq 1$ se integra la última ecuación, dando como resultado
+    
+    \begin{equation*}
+        \rho = C \rho_{0} + \frac{P}{\gamma - 1},
+    \end{equation*}
+    donde $C$ es una constante de integración igual a 1 ya que en el límite no relativista se tiene que $\rho \rightarrow \rho_{0}$, quedando entonces
+    
+    \begin{equation}
+        \rho = \rho_{0} + \frac{P}{\gamma - 1} = \rho_{0} + n P.
+    \end{equation}
+    
+    \item Caso 2: Otra posibilidad consiste en asumir que la relación polítropa está definida por 
+    \begin{equation}
+    \label{Poli2}
+        P = K \rho^{1+1/n}.
+    \end{equation}
+    
+    Para este caso, de (\ref{primeraley}) y (\ref{Poli2}), se obtiene
+    
+    \begin{equation*}
+        \rho = \frac{\rho_{0}}{\left(1 - K \rho_{0}^{1/n} \right)^{n}}.
+    \end{equation*}
+
+\end{itemize}
+
+En \cite{HerreraFuenmayorLeon2016}, Herrera et al. discuten los efectos que pueden tener las pequeñas fluctuaciones de la anisotropía y de la densidad de energía para que ocurran fracturas en objetos compactos esféricos, modelados por ecuaciones de estado polítropas (\ref{Poli1}) y (\ref{Poli2}). En su estudio muestran que, bajo ciertas condiciones y para un rango amplio de parámetros que definen a las ecuaciones de estado polítropas y a la anisotropía, estas configuraciones de materia pueden exhibir fracturas o solapamiento.
+
+
+Por otra parte, Sharif y Sadiq \cite{sharif2018cracking} examinan las consecuencias de las perturbaciones locales no constantes de la densidad (lo cual induce variaciones en todas las variables físicas y sus derivadas) para modelos polítropos con ecuaciones de estado de la forma (\ref{Poli2}) bajo el concepto de fracturas. En este estudio, hecho para dos valores del índice polítropo ($n = 1$ y $n = 2)$, se encuentra la existencia de solapamiento para $n = 1$ y para todas las elecciones de los parámetros libres que modelan la ecuación; mientras que para el caso en que $n=2$ no se presentan fracturas ni solapamientos para valores grandes de la constante polítropa $K$. 
+
+%decir que sharif sadiq solo lo hacen para dos valores de n
+
+
+
+    
+\section{HIPÓTESIS}
+
+La reacción del gradiente de presión ante perturbaciones locales de la densidad, y/o el principio de Arquímedes, impide(n) la aparición de fuerzas que cambien de signo dentro de la configuración material, justo después de que esta abandone el equilibrio hidrostático.
+    
+\section{METODOLOGÍA}
+La metodología que se seguirá para abordar el problema planteado y cumplir con los objetivos establecidos viene dada por los siguientes pasos: \\
+
+1. Se comenzará modelando la configuración material a estudiar por medio de las ecuaciones de estructura: ecuación de equilibrio hidrostático (la cual relaciona el gradiente de presión con la fuerza gravitacional del objeto) y conservación de la masa; y a través de las ecuaciones de estado polítropas (\ref{Poli1}) y (\ref{Poli2}). \\
+
+2. A continuación se integrará numéricamente el sistema de ecuaciones, para distintos valores del índice polítropo $n$, con el fin de obtener el perfil de densidad que describe a cada una de las distintas configuraciones materiales. \\
+
+3.  Con base en lo anterior se determinará la segunda derivada de la densidad respecto al espacio (flotabilidad); además se podrá evaluar la ecuación de equilibrio perturbada con el fin de determinar la existencia de fuerzas que cambien de signo dentro de la configuración bajo perturbaciones locales y no constantes de la densidad (fracturas). \\
+
+4. Luego se analizará la estabilidad convectiva de la configuración material en cuestión teniendo en cuenta los resultados obtenidos en el paso anterior. \\
+
+5. Por último se compararán los dos criterios de estabilidad desarrollados para establecer cómo es la relación existente entre ellos. 
+
+\newpage
+
+\section{CRONOGRAMA}
+
+
+\begin{table}[!h]
+\label{T:cronograma}
+\begin{center}
+\begin{tabular}{ | c | c | c | c | c | c |}
+\hline
+\textbf{Actividad} & \multicolumn{5}{ c |}{\textbf{Tiempo (meses)}} \\
+\cline{2-6}
+& \text{1} & \text{2} & \text{3} & \text{4} & \text{5} \\
+\hline
+
+Revisión bibliográfica & X& X& X& X& X\\  \hline
+Modelamiento de la configuración material a estudiar &X & & & & \\  \hline
+Solución del sistema de ecuaciones que & & & & & \\ describe la configuración material & & X&X & & \\  \hline
+Cálculo de la segunda derivada de la densidad & & & & & \\ y evaluación de la ecuación de equilibrio perturbada & & &X &X & \\  \hline
+Análisis y comparación de los resultados & & & &X & \\ \hline
+Escritura y sustentación del informe final & & & & X& X  \\  \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\section{RECURSOS HUMANOS}
+
+
+    
+\begin{center}
+\textbf{ \\ Persona 1}
+\end{center}
+ 
+
+\begin{table}[h!]
+\label{T:Persona 1}
+\begin{center}
+\begin{tabular}{ | c | c |}
+\hline
+
+{Entidad} & \text{Universidad Industrial de Santander} \\  \hline
+{Grupo de investigación} & \text{Grupo de Investigación en Relatividad y Gravitación} \\  \hline
+{Rol del trabajo} & \text{Investigador principal}  \\   \hline
+{Primer apellido} & \text{Suárez}  \\   \hline
+{Segundo apellido} & \text{Urango}  \\   \hline
+{Nombres} & \text{Daniel Felipe}  \\   \hline
+{Género} & \text{Masculino}  \\   \hline
+{Fecha de nacimiento} & \text{20/09/1991}  \\   \hline
+{Ciudad, País} & \text{Bucaramanga, Colombia}  \\   \hline
+{Correo electrónico} & \text{danielfsu@hotmail.com}  \\   \hline
+\multirow{2}{*}{Responsabilidades} & {Desarrollo del proyecto, análisis y síntesis de resultados,} \\ 
+& {escritura del proyecto} \\  \hline
+{Dedicación (horas semanales)} & \text{24}  \\   \hline
+{Número de meses} & \text{5}  \\   \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+
+\begin{center}
+\textbf{Persona 2}
+\end{center}
+
+\begin{table}[h!]
+\label{T:Persona 2}
+\begin{center}
+\begin{tabular}{ | c | c |}
+\hline
+
+{Entidad} & \text{Universidad Industrial de Santander} \\  \hline
+{Grupo de investigación} & \text{Grupo de Investigación en Relatividad y Gravitación} \\  \hline
+{Rol del trabajo} & \text{Director del proyecto}  \\   \hline
+{Primer apellido} & \text{Núñez de Villavicencio}  \\   \hline
+{Segundo apellido} & \text{Martínez}  \\   \hline
+{Nombres} & \text{Luis Alberto}  \\   \hline
+{Género} & \text{Masculino}  \\   \hline
+%{Fecha de nacimiento} & \text{2/04/1961}  \\   \hline
+{Ciudad, País} & \text{Bucaramanga, Colombia}  \\   \hline
+{Correo electrónico} & \text{lnunez@uis.edu.co}  \\   \hline
+\multirow{2}{*}{Responsabilidades} & {Director del proyecto de tesis. Proporcionar una guía} \\ 
+& {principal al desarrollo del proyecto} \\  \hline
+{Dedicación (horas semanales)} & \text{4}  \\   \hline
+{Número de meses} & \text{5}  \\   \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\begin{center}
+\textbf{Persona 3}
+\end{center}
+
+\begin{table}[!h]
+\label{T:Persona 3}
+\begin{center}
+\begin{tabular}{ | c | c |}
+\hline
+
+{Entidad} & \text{Universidad Industrial de Santander} \\  \hline
+{Grupo de investigación} & \text{Grupo de Investigación en Relatividad y Gravitación} \\  \hline
+{Rol del trabajo} & \text{Codirector del proyecto}  \\   \hline
+{Primer apellido} & \text{Hernández}  \\   \hline
+{Segundo apellido} & \text{Guerra}  \\   \hline
+{Nombres} & \text{Héctor Froilán}  \\   \hline
+{Género} & \text{Masculino}  \\   \hline
+%{Fecha de nacimiento} & \text{2/04/1961}  \\   \hline
+{Ciudad, País} & \text{Bucaramanga, Colombia}  \\   \hline
+{Correo electrónico} & \text{hectorfro@gmail.com}  \\   \hline
+\multirow{2}{*}{Responsabilidades} & {Co-director del proyecto de tesis. Proporcionar una guía} \\ 
+& {al desarrollo del proyecto} \\  \hline
+{Dedicación (horas semanales)} & \text{4}  \\   \hline
+{Número de meses} & \text{5}  \\   \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+% \newpage
+
+
+% \appendix
+
+% \section{Condiciones de energía}\label{CdE}
+
+
+
+
+
+\newpage
+
+
+%\bibliographystyle{bababbr3}
+\bibliographystyle{ieeetr}
+\bibliography{Bibliografia.bib}
+
+
+
+\end{document}
+
